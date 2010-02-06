@@ -1,0 +1,75 @@
+base for modules for connection for other frameworks or parts of other frameworks
+
+
+no need for contribution of third party modules in site building (all can be done with a site building tool); no plugins are needed but constructs (nothing that extends the basic functionality, only a constructed prototypes of a part of an application or whole site)
+node is virtually any or a minimal consistent set of data describing an entity with which an action should be done (but more like in component content management systems)
+action
+help build directly in the interface (help icon besides every form element + link to documentation)
+comics-bubble-like tutorial hints for object control elements and actions (first-time-use-this tutorial integrated right to the interface or expanded element and action help)
+tags, categories can be whatever static element eg. text, image, array, boolean, ...
+tree structured categories with validations (eg. can be only in one regional network, need a school email for school network)
+hierarchical code layering (copy any source file altogether with directory hierarchy from the folder where the original source code files are hold to users folder, change it a little bit to obtain a file that overrides the old one, and do it again and again in another user folder with appropriate number to obtain a code layering hierarchy)
+inheritance in everything what comes in question
+settings in user files, data in database (that what we wanted to be changable by the aplication; can be also settings)
+the data in database and settings in files are written in same manner to make transfer from one to the other easy
+strict convention over configuration (no deviations alowed, eg. for one purpose can use only one function)
+every action (change in database eg. update, delete row, change in filesystem eg. create directory, modufy file) rises a message
+messages goes to logs
+update service, handles everything automatically, admin needs only to click on update buttons, application downloads the updates from service site, extracts and installs them, shows verbose messages about changes in filesystem and database
+templates for every code developer can build
+
+
+
+
+elements:
+
+debugging:
+	meaningful error messages (whick module, ...)
+	suggestions for configuration entries which causes the problem
+
+actions:
+	actions history (trace of actions with the undo, redo functionality, eg. revision control)
+
+urls:
+	control all urls with replacement tokens or regular expressions
+	remember old urls
+	find all links pointing to old urls and replace them with the actual one with highest or selected priority
+
+breadcrumbs:
+	control all breadcrumbs with replacement tokens
+
+titles:
+	control all title html tags with replacement tokens
+
+menus:
+	control all the navigation with replacement tokens
+
+meta_tags:
+	control description and keywords html meta tags
+
+relationships:
+	relationships beetwen nodes
+
+tokens:
+	administration of replacement tokens
+
+logs:
+	responsible for managing logs
+pagers
+
+
+
+based on open source framework with following features:
+	object relational mapping
+	persistence
+	RESTful url dispatcher
+	model view controller
+	form generation, serialization and validation
+	web services, generating of feeds, openid
+	role/user-based authentication, authorization
+	caching
+	internationalization
+	plugins (because we plan to build the framework as a plugin to this existing one)
+	excelent debugging (errors that lead to answers for what is missing)
+	
+	turbogears, pylons
