@@ -1,75 +1,140 @@
-base for modules for connection for other frameworks or parts of other frameworks
+title:
+	tree framework
 
+concept:
+	The application consists of a data tree with mixed structure and a runtime capable of executing simple algorhitms on tree nodes where the logic and construction elements of the application resides.
+	This structure also fulfills the concepts of modular design of reusable components, separation of concerns, code overlaying (overriding), etc.
 
-no need for contribution of third party modules in site building (all can be done with a site building tool); no plugins are needed but constructs (nothing that extends the basic functionality, only a constructed prototypes of a part of an application or whole site)
-node is virtually any or a minimal consistent set of data describing an entity with which an action should be done (but more like in component content management systems)
-action
-help build directly in the interface (help icon besides every form element + link to documentation)
-comics-bubble-like tutorial hints for object control elements and actions (first-time-use-this tutorial integrated right to the interface or expanded element and action help)
-tags, categories can be whatever static element eg. text, image, array, boolean, ...
-tree structured categories with validations (eg. can be only in one regional network, need a school email for school network)
-hierarchical code layering (copy any source file altogether with directory hierarchy from the folder where the original source code files are hold to users folder, change it a little bit to obtain a file that overrides the old one, and do it again and again in another user folder with appropriate number to obtain a code layering hierarchy)
-inheritance in everything what comes in question
-settings in user files, data in database (that what we wanted to be changable by the aplication; can be also settings)
-the data in database and settings in files are written in same manner to make transfer from one to the other easy
-strict convention over configuration (no deviations alowed, eg. for one purpose can use only one function)
-every action (change in database eg. update, delete row, change in filesystem eg. create directory, modufy file) rises a message
-messages goes to logs
-update service, handles everything automatically, admin needs only to click on update buttons, application downloads the updates from service site, extracts and installs them, shows verbose messages about changes in filesystem and database
-templates for every code developer can build
+tree structure:
+	mapping filesystem:
+		files:
+		directories:
+	readme.txt in every directory
+	definitions:
+	routes:
+		defines the flow of components
+	hiding nodes with placing a "." on the beginning of the name of the node
 
+definition of terms:
+	node:
+		tree node
+	component:
+		element of modular design
+	layer:
+		component separation
+	tier:
+		code overlaying (overriding)
+	state variables?
+	routes:
+		flow of node data
+		sequence of entities
 
+component layers (by features they provide):
+	controller:
+		url dispatching (RESTful)
+	roles:
+		authentication, authorization
+	validation:
+		validations
+	model:
+		domain logic
+	persistence:
+		database model, data persistence
+	localization:
+		string trasformations
+	presentation:
+		templating system
 
+components:
+	listing component:
+		like drupal views
+	pager
+	breadcrumb
+	menus
+	meta tags:
+		html meta tags
+	title tags:
+		title html tags
 
-elements:
+granularity:
+	According to the component design, for better reusability and development practices it's better to have many smaller components bound to each other in opposite to having fever more specificly oriented.
+	data structures relations
+	component dependencies, aggregation
+	routes aggregation
+	easily accessible higher level logic
 
-debugging:
-	meaningful error messages (whick module, ...)
-	suggestions for configuration entries which causes the problem
-
-actions:
-	actions history (trace of actions with the undo, redo functionality, eg. revision control)
-
-urls:
-	control all urls with replacement tokens or regular expressions
-	remember old urls
-	find all links pointing to old urls and replace them with the actual one with highest or selected priority
-
-breadcrumbs:
-	control all breadcrumbs with replacement tokens
-
-titles:
-	control all title html tags with replacement tokens
-
-menus:
-	control all the navigation with replacement tokens
-
-meta_tags:
-	control description and keywords html meta tags
-
-relationships:
-	relationships beetwen nodes
-
-tokens:
-	administration of replacement tokens
-
-logs:
-	responsible for managing logs
-pagers
-
-
-
-based on open source framework with following features:
-	object relational mapping
-	persistence
-	RESTful url dispatcher
-	model view controller
-	form generation, serialization and validation
-	web services, generating of feeds, openid
-	role/user-based authentication, authorization
+performance:
+	code compilation
+	mixture of pull/push
 	caching
-	internationalization
-	plugins (because we plan to build the framework as a plugin to this existing one)
-	excelent debugging (errors that lead to answers for what is missing)
-	
-	turbogears, pylons
+
+features:
+	complete development toolset in the core
+	debugging:
+		meaningful error messages (which component, ...)
+		suggestions for configuration entries which causes the problem
+	actions:
+		actions history (trace of actions with the undo, redo functionality, eg. revision control)
+	urls:
+		control all urls with replacement tokens or regular expressions
+		remember old urls
+		find all links pointing to old urls and replace them with the actual one with highest or selected priority
+	tokens:
+		administration of replacement tokens
+	logs:
+		responsible for managing logs
+	structure of database compatible with config data structures so this can be moved from one to the other depending on wether we want it to be changable by the application or not
+	database transformations (due to model changes)
+	prototypes of a part of an application or whole site (the right way how to do things examples), like drupal profiles
+
+developer tools:
+	component flow browser
+	code override browser
+
+common web frameworks features:
+	frameworks with flat design:
+		separation (mostly model-view-controller)
+		role/user-based authentication, authorization, openid
+		unified database api
+		object relational mapping
+		persistence
+		RESTful url dispatcher
+		form generation, serialization and validation
+		templating system
+		ajax
+		web services
+		generating of feeds
+		caching
+		internationalization
+		plugins
+		debugging (errors that lead to configuration suggestions)
+		unit tests
+		examples:
+			turbogears, pylons
+	frameworks with modular design:
+		hooks
+		variable, data, configuration contexts
+		examples:
+			drupal, typo3
+			wicket, tapestry, jboss seam
+		continuation, sessions, live debugging:
+			seaside, lift
+			flow3
+
+misc remarks:
+	alternative persistence models
+	blog example
+	node is virtually any or a minimal consistent set of data describing an entity with which an action should be done (but more like in component content management systems)
+	action
+	help build directly in the interface (help icon besides every form element + link to documentation)
+	comics-bubble-like tutorial hints for object control elements and actions (first-time-use-this tutorial integrated right to the interface or expanded element and action help)
+	tags, categories can be whatever static element eg. text, image, array, boolean, ...
+	tree structured categories with validations (eg. can be only in one regional network, need a school email for school network)
+	hierarchical code layering (copy any source file altogether with directory hierarchy from the folder where the original source code files are hold to users folder, change it a little bit to obtain a file that overrides the old one, and do it again and again in another user folder with appropriate number to obtain a code layering hierarchy)
+	inheritance in everything what comes in question
+	settings in user files, data in database (that what we wanted to be changable by the aplication; can be also settings)
+	the data in database and settings in files are written in same manner to make transfer from one to the other easy
+	strict convention over configuration (no deviations alowed, eg. for one purpose can use only one function)
+	every action (change in database eg. update, delete row, change in filesystem eg. create directory, modufy file) rises a message
+	messages goes to logs
+	update service, handles everything automatically, admin needs only to click on update buttons, application downloads the updates from service site, extracts and installs them, shows verbose messages about changes in filesystem and database
