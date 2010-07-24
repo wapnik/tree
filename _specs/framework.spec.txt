@@ -2,18 +2,42 @@ title:
 	tree framework
 
 concept:
-	The application consists of a data tree with mixed structure and a runtime capable of executing simple algorhitms on tree nodes where the logic and construction elements of the application resides.
+	The application consists of a data tree with mixed structure and a runtime capable of executing simple algorithms on tree nodes where the logic and construction elements of the application resides.
 	This structure also fulfills the concepts of modular design of reusable components, separation of concerns, code overlaying (overriding), etc.
 
 tree structure:
-	mapping filesystem:
-		files:
+	representing:
+		categorization of technics, methods, technologies used in building a variety of applications
+	represented by the filesystem:
 		directories:
-	readme.txt in every directory
-	definitions:
+			nodes
+			namespaces (labels)
+		files:
+			leaf nodes
+			node data:
+				node type definitions
+				routes
+				configuration
+	readme file in every directory:
+		framework's primary documentation/reference/handbook
+	node type definitions:
+		describing:
+			data structure inside the node
+			execution of contained code (which compiler to use and how, compiler's environment)
+			what to do with the described structure afterwards, what to remember
+			if pseudocode is used, description of the symbols/marks/commands
+		inheritance:
+			of definitions of the same node type for nodes under
+			overriding of definitions of the same type by definitions under
 	routes:
-		defines the flow of components
-	hiding nodes with placing a "." on the beginning of the name of the node
+		describing:
+			the order of nodes processing (next node)
+	hiding directories and files with placing a "." at the beginning of their name (like in UNIX)
+
+environment (node execution):
+	actual node data for modification by the execution
+	constant mirror of node data from the filesystem (a copy before the execution)
+	execution starts at tree's root
 
 definition of terms:
 	node:
@@ -24,10 +48,6 @@ definition of terms:
 		component separation
 	tier:
 		code overlaying (overriding)
-	state variables?
-	routes:
-		flow of node data
-		sequence of entities
 
 component layers (by features they provide):
 	controller:
@@ -41,7 +61,7 @@ component layers (by features they provide):
 	persistence:
 		database model, data persistence
 	localization:
-		string trasformations
+		string transformations
 	presentation:
 		templating system
 
@@ -83,7 +103,7 @@ features:
 		administration of replacement tokens
 	logs:
 		responsible for managing logs
-	structure of database compatible with config data structures so this can be moved from one to the other depending on wether we want it to be changable by the application or not
+	structure of database compatible with config data structures so this can be moved from one to the other depending on whether we want it to be changeable by the application or not
 	database transformations (due to model changes)
 	prototypes of a part of an application or whole site (the right way how to do things examples), like drupal profiles
 
@@ -132,9 +152,9 @@ misc remarks:
 	tree structured categories with validations (eg. can be only in one regional network, need a school email for school network)
 	hierarchical code layering (copy any source file altogether with directory hierarchy from the folder where the original source code files are hold to users folder, change it a little bit to obtain a file that overrides the old one, and do it again and again in another user folder with appropriate number to obtain a code layering hierarchy)
 	inheritance in everything what comes in question
-	settings in user files, data in database (that what we wanted to be changable by the aplication; can be also settings)
+	settings in user files, data in database (that what we wanted to be changeable by the application; can be also settings)
 	the data in database and settings in files are written in same manner to make transfer from one to the other easy
-	strict convention over configuration (no deviations alowed, eg. for one purpose can use only one function)
-	every action (change in database eg. update, delete row, change in filesystem eg. create directory, modufy file) rises a message
+	strict convention over configuration (no deviations allowed, eg. for one purpose can use only one function)
+	every action (change in database eg. update, delete row, change in filesystem eg. create directory, modify file) rises a message
 	messages goes to logs
 	update service, handles everything automatically, admin needs only to click on update buttons, application downloads the updates from service site, extracts and installs them, shows verbose messages about changes in filesystem and database
