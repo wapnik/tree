@@ -1,0 +1,53 @@
+title:
+  tree framework
+
+concept:
+  The application consists of trees with mixed structures separating different aspects of the code, and a runtime capable of executing simple algorithms on tree nodes, where the logic and construction elements of the application resides. The trees are a representation of an unambiguous categorization describing a link between those aspects for a particular piece of code. The algorithms are also capable of writing configuration related to the code, thus treating most of the trees like data. The major goal of this is to make it possible to modify and evolve the application in commonly described manners by the runtime itself. It's also easy to use a VCS to have the state of the evolution fully under control.
+
+tree structure:
+  representing:
+    categorization of technics, methods, technologies (called terms here) used in building a variety of applications
+  represented by the filesystem:
+    directories:
+      nodes
+      namespaces (labels)
+    files:
+      leaf nodes
+      node data:
+        node type definitions
+        routes
+        configuration
+  readme file in every directory:
+    framework's primary documentation/reference/handbook
+  node type definitions:
+    describing:
+      data structure inside the node
+      execution of contained code (which compiler to use and how, compiler's environment)
+      what to do with the described structure afterwards, what to remember
+      if pseudocode is used, description of the symbols/marks/commands
+    inheritance:
+      of definitions of the same node type for nodes inside
+      overriding of definitions of the same type by definitions inside
+  hiding directories and files by placing a "." at the beginning of their name (like in UNIX)
+
+linked trees:
+  vocabulary tree:
+    terms:
+      this is the code
+      code is not returning anything, just setting
+  context tree:
+    describing:
+      input, output variable scopes
+      what to remember
+  routes (rules, flow) tree:
+    describing:
+      the order of node processing (next node)
+
+environment (node execution):
+  actual node data for modification by the execution
+  a copy of node data from the beginning of execution
+  execution starts at tree's root
+
+definition of terms:
+  node:
+    a tree node
